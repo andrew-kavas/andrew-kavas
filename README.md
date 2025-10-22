@@ -1,5 +1,5 @@
 # andrewkavas
-https://andrewkavas.com
+https://akavas.com
 
 personal site WIP \
 `bin/up`
