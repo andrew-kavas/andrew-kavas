@@ -27,6 +27,11 @@ export default defineConfig(({ mode }) => {
       host: '0.0.0.0',
       // todo: revisit this
       port: env.VITE_VERSION === 'development' ? 3000 : 80, // Ensure this is consistent with your Docker Compose setup
+      allowedHosts: [
+        'andrewkavas.com',
+        'andrew-kavas.fly.dev'
+        // 'localhost' // Keep localhost if you use it for local development
+      ],
       strictPort: true // Ensures Vite will only start if the port is available
     },
     plugins: [react()]
