@@ -1,9 +1,8 @@
-https://www.andrewkavas.com
 # andrewkavas
 https://andrewkavas.com
 
-personal site WIP
-bin/up
+personal site WIP \
+`bin/up`
 
 <!--what: minimalist andrewkavas scaffold
 why: prototyping andrewkavas applications
