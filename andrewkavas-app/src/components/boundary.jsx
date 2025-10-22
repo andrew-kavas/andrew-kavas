@@ -3,7 +3,7 @@ import { Component, Suspense } from 'react';
 import LoadingArea from '#src/components/loading-area.jsx';
 import reportError from '#src/functions/report-error.js';
 
-const { console } = globalThis;
+// const { console } = globalThis;
 
 class ErrorBoundary extends Component {
   constructor(...args) {
@@ -19,22 +19,31 @@ class ErrorBoundary extends Component {
     this._isMounted = false;
   }
 
-  static getDerivedStateFromError() {
-    return { isLoading: true };
+  static getDerivedStateFromError(error) {
+    // Set the error object here so it's ready for render()
+    return { error: error, isLoading: false };
   }
+  // static getDerivedStateFromError() {
+  //   return { isLoading: true };
+  // }
 
   async componentDidCatch(error) {
-    if (!this._isMounted) {
-      console.log('isMounted');
-      return;
-    }
-
-    error ??= new Error('Unknown Error');
-
+    // ... (logging and isMounted check) ...
     reportError(error);
-
-    this.setState({ error, isLoading: false });
+    // Note: No need for this.setState here if GDSFE sets the state.
   }
+  // async componentDidCatch(error) {
+  //   if (!this._isMounted) {
+  //     console.log('isMounted');
+  //     return;
+  //   }
+
+  //   error ??= new Error('Unknown Error');
+
+  //   reportError(error);
+
+  //   this.setState({ error, isLoading: false });
+  // }
 
   render() {
     const { error, isLoading } = this.state;
@@ -42,11 +51,24 @@ class ErrorBoundary extends Component {
     if (isLoading) return <LoadingArea />;
 
     if (error) {
-      return <div>{error}</div>;
+      // FIX: Instead of rendering the Error object directly,
+      // render the error.message property.
+      return <div>{error.message}</div>;
     }
 
     return this.props.children;
   }
+  // render() {
+  //   const { error, isLoading } = this.state;
+
+  //   if (isLoading) return <LoadingArea />;
+
+  //   if (error) {
+  //     return <div>{error}</div>;
+  //   }
+
+  //   return this.props.children;
+  // }
 }
 
 const Boundary = ({ children }) => (

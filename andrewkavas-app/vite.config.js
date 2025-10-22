@@ -32,7 +32,6 @@ export default defineConfig(({ mode }) => {
         'app.akavas.com',
         'www.akavas.com',
         'andrew-kavas.fly.dev'
-        // 'www.akavas.com',
         // 'andrewkavas.com',
         // 'localhost'
       ],
