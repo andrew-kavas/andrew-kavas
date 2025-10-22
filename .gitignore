@@ -1,1 +1,14 @@
 /notes.txt
+.DS_Store
+.env
+.vscode
+*.log
+/node_modules
+jsconfig.json
+notes.md
+
+.env.production
+
+/andrewkavas-api*
+/api*
+/dev*
