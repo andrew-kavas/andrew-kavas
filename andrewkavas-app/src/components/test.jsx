@@ -31,6 +31,7 @@ const Test = ({ testParam1, testError }) => {
       {isLoading && <LoadingArea />}
       <div>testParam1: {testParam1} </div>
       {error && <div className='text-red-500'>Error: {error.message}</div>}
+      <div>test change</div>
       {data && <div className='text-green-500'>{data}</div>}
     </>
   );
