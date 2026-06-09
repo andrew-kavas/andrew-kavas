@@ -81,6 +81,9 @@ const App = () => {
   return (
     <div className='min-h-screen p-6'>
       <Header />
+
+      <div className='text-center'>CI/CD testing...</div>
+
       <Test testParam1={'ok'} />
 
       <Footer />
