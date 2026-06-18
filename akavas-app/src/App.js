@@ -1,9 +1,10 @@
 import { Suspense } from 'react';
 
-import reactLogo from '#src/assets/react.svg';
+import logo from '#src/assets/logo.svg';
 import Test from '#src/components/test.js';
 import lazyLoad, { preloadComponent } from '#src/functions/lazy-load.js';
 import history, { useHistory } from '#src/constants/history.js';
+// import reactLogo from '#src/assets/react.svg';
 
 import '#src/App.css';
 
@@ -11,9 +12,10 @@ const ProjectA = lazyLoad(() => import('#src/components/project-a.js'));
 const ProjectB = lazyLoad(() => import('#src/components/project-b.js'));
 
 const Header = () => (
+  // <div className='flex flex-row justify-center bg-teal-200'>
   <div className='flex flex-row justify-center'>
-    <a href='https://react.dev' target='_blank' rel='noreferrer'>
-      <img src={reactLogo} className='logo react' alt='React logo' />
+    <a href='https://akavas.com' target='_blank' rel='noreferrer'>
+      <img src={logo} className='logo react' alt='React logo' />
     </a>
   </div>
 );
@@ -21,7 +23,7 @@ const Header = () => (
 const Footer = () => (
   <div className='flex flex-row justify-center'>
     <a href='https://react.dev' target='_blank' rel='noreferrer'>
-      <img src={reactLogo} className='logo react' alt='React logo' />
+      <img src={logo} className='hover:bg-teal-200' alt='React logo' />
       <div>Link to my GitHub</div>
     </a>
   </div>
