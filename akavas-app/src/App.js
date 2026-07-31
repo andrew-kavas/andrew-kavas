@@ -4,6 +4,7 @@ import logo from '#src/assets/logo.svg';
 import Test from '#src/components/test.js';
 import lazyLoad, { preloadComponent } from '#src/functions/lazy-load.js';
 import history, { useHistory } from '#src/constants/history.js';
+// import useRootContext from '#src/hooks/use-root-context.js';
 // import reactLogo from '#src/assets/react.svg';
 
 import '#src/App.css';
@@ -14,16 +15,21 @@ const ProjectB = lazyLoad(() => import('#src/components/project-b.js'));
 const Header = () => (
   // <div className='flex flex-row justify-center bg-teal-200'>
   <div className='flex flex-row justify-center'>
-    <a href='https://akavas.com' target='_blank' rel='noreferrer'>
-      <img src={logo} className='logo react' alt='React logo' />
+    <a href='https://akavas.com' rel='noreferrer'>
+    {/* <a href='https://akavas.com' target='_blank' rel='noreferrer'>*/}
+      <img src={logo} className='logo' alt='Akavas logo' />
+      {/* <img src={logo} className='logo react' alt='Akavas logo' />*/}
     </a>
   </div>
 );
 
+// todo: /links route
+
 const Footer = () => (
   <div className='flex flex-row justify-center'>
-    <a href='https://react.dev' target='_blank' rel='noreferrer'>
-      <img src={logo} className='hover:bg-teal-200' alt='React logo' />
+    <a href='https://akavas.com' target='_blank' rel='noreferrer'>
+      {/* <img src={logo} className='logo' alt='Akavas logo' />*/}
+      <img src={logo} className='hover:bg-teal-200' alt='Akavas logo' />
       <div>Link to my GitHub</div>
     </a>
   </div>
@@ -76,9 +82,22 @@ const NavItem = ({
 );
 
 const App = () => {
+  // const {
+    // location: { path: rootPath, query: rootQuery },
+    // organization: { id: organizationId, timeZone }
+  // } = useRootContext();
 
   console.log(history);
   const { path } = useHistory();
+  console.log('path', path);
+  const query = history.current.query;
+
+  if (query) {
+    console.log('queryParams', query);
+  // todo: update utm campaign tracking
+
+    if (query?.utm_source) console.log('utm_source', query.utm_source);
+  }
 
   return (
     <div className='min-h-screen p-6'>
